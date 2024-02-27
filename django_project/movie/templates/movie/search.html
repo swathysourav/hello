@@ -1,0 +1,30 @@
+{% extends 'movie/base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <p class="text-center my_search_text">You have searched for:<b>"{{query}}"</b> </p>
+</div>
+<div class="container">
+    <div class="row my_auto">
+        {% for movies in movie %}
+        <div class="my_bottom_margin col-9 col-sm-6 col-md-4 col-sm-4">
+            <div class="card text-center" style="min-width:18rem;">
+            <img class="card-img-top my_image" src="{{movies.movie_image.url}}" alt="{{movies.movie_name}}"></a>
+            </div>
+            <div class="card-body">
+              <h4> {{movies.movie_name}}</h4>
+                <p>{{movies.movie_description}}</p>
+            </div>
+        </div>
+    </div>
+        {% empty %}
+    <div class="row mx_auto">
+        <p class="text-center my_text_search">0 results found</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+

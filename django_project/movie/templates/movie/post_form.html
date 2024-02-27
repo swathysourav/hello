@@ -1,0 +1,22 @@
+{% extends "movie/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+     <div class="row">
+         <div class="col-md-12">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h6> Movie Image:</h6><input type="file" name="movie_image"><br><br>
+   <h6>Enter Movie Name:</h6><input type="text" name="movie_name" placeholder="Enter movie name"><br><br>
+    <h6>Enter Movie_Details:</h6><input type="text" name="movie_description" placeholder="Enter description"><br><br>
+    <h6>Enter Release_Date:</h6><input type="date" name="relrase_date" placeholder="Enter release date"><br><br>
+    <h6>Enter Movie_Actors:</h6><input type="text" name="actors" placeholder="actors"><br><br>
+    <h6>Enter Username:</h6><input type="text" name="movie_user" placeholder="Enter user"><br><br>
+    <h6>Enter Movie_link:</h6><input type="text" name="youtube" placeholder="Enter link"><br><br>
+    <input type="submit">
+
+</form>
+             </div>
+     </div>
+</div>
+{% endblock content %}

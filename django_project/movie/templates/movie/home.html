@@ -1,0 +1,36 @@
+{% extends 'movie/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+    {% for i in posts %}
+        <div class="col-md-4 text-center">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body" >
+            <img src={{i.movie_image.url}} class="card-img-top"  alt="Card image cap" height="200px" width="100px">
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{i.movie_name}}</li>
+            <li class="list-group-item">{{i.actors}}</li>
+        </ul>
+  <div class="card-body">
+    <a href="{{i.youtube}}" class="card-link">Watch Trailer</a>
+      <a href="{% url 'post-detail' i.id %}" class="card-link">Details</a>
+</div>
+  </div>
+    </div>
+
+    {% endfor %}
+        </div>
+</div>
+     <div class="mx_auto">
+        {% if posts.paginator.num_pages > 1 %}
+        <div class="pagination" >
+            {% for pg in posts.paginator.page_range %}
+            <a href="?page={{pg}}"  class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock content %}
